@@ -62,6 +62,8 @@ export const config = {
     ],
     btn: "Forgive me? 🥺",
     after: "Thank you, Maalkin. Royal pardon accepted! 💙",
+    gift: "A little bouquet for my favourite Maalkin 💐",
+    giftAlt: "A bouquet for the Princess, from your bestest friend 💐",
   },
   message: [
     "Dear Princess Riddhi,",

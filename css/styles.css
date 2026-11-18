@@ -205,6 +205,33 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .coronation-crown { z-index: 1; display: block; }
 .letter-scroll-prop { display: block; width: 70px; margin: 0 auto -12px; }
 .pardon-after { color: #355c91; }
+.scene-balcony .story-card.has-apology-bouquet .scene-scroll { padding-top: 184px; }
+.apology-bouquet { display: block; pointer-events: none; }
+.apology-bouquet--held { position: absolute; z-index: 4; top: 24px; left: 50%; width: 110px; transform-origin: 50% 75%; animation: bouquet-held-sway 3s ease-in-out infinite; }
+.bouquet-art { display: block; width: 100%; height: auto; overflow: visible; }
+.bouquet-twinkle { transform-box: fill-box; transform-origin: center; animation: bouquet-sparkle .9s ease-in-out infinite alternate; }
+.bouquet-twinkle--two { animation-delay: -.45s; }
+.apology-bouquet--flight { position: fixed; z-index: 30; margin: 0; pointer-events: none; animation: none; }
+.apology-gift-stage { position: relative; display: grid; place-items: center; width: min(100%, 180px); height: 190px; margin: 6px auto 0; opacity: 0; transform: scale(.92); }
+.apology-gift-stage::before { position: absolute; inset: 14%; border-radius: 50%; content: ''; opacity: 0; pointer-events: none; background: radial-gradient(ellipse, rgba(255, 229, 190, .48), rgba(248, 211, 205, .2) 48%, transparent 74%); }
+.apology-gift-stage.is-arrived { opacity: 1; animation: bouquet-land .38s cubic-bezier(.34, 1.56, .64, 1) both; }
+.apology-gift-stage.is-arrived::before { animation: bouquet-glow 3s ease-in-out infinite alternate; }
+.bouquet-art--landed { position: relative; z-index: 1; animation: bouquet-hover 3s ease-in-out infinite; }
+.apology-actions .scene-button { transition: opacity .3s ease-out, transform .3s ease-out; }
+.apology-actions .scene-button.is-fading { opacity: 0; transform: translateY(7px) scale(.97); pointer-events: none; }
+.apology-reveal-line { opacity: 0; transform: translateY(7px); }
+.apology-reveal-line.is-visible { opacity: 1; transform: translateY(0); transition: opacity .45s ease-out, transform .45s ease-out; }
+.apology-gift-line { margin: 12px 0 0; }
+.apology-next-actions { margin-top: 16px; }
+.apology-cat::before, .apology-cat::after { position: absolute; z-index: 2; bottom: -15px; width: 16px; height: 14px; border: 2px solid #57485a; border-radius: 55% 55% 48% 48%; content: ''; background: #f2c6a7; }
+.apology-cat::before { left: 19%; transform: rotate(-18deg); }
+.apology-cat::after { right: 19%; transform: rotate(18deg); }
+.scene-balcony .apology-cat { z-index: 5; }
+.scene-balcony .apology-cat.apology-cat--offering { transform: translateX(-50%) translateY(10px) scale(1.05); transition: transform .4s ease-out; animation-play-state: paused; }
+.bouquet-puff { position: fixed; z-index: 31; width: 0; height: 0; pointer-events: none; transform: translate(-50%, -50%); }
+.bouquet-puff-petal, .bouquet-puff-sparkle { position: absolute; top: 0; left: 0; display: block; opacity: 0; }
+.bouquet-puff-petal { width: 10px; height: 15px; border-radius: 78% 22% 76% 24%; background: var(--puff-color, #f4a9b8); animation: bouquet-petal-puff 2.5s ease-out both; }
+.bouquet-puff-sparkle { width: 8px; height: 8px; background: #f5d98b; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); animation: bouquet-sparkle-puff 1.8s ease-out both; }
 .finale-sign { margin-top: 24px; white-space: nowrap; }
 .typed-copy { margin-top: 14px; }
 .scene-balcony .body-copy { line-height: 1.5; }
@@ -276,6 +303,13 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 @keyframes princess-twirl { 0% { opacity: 0; transform: rotateY(0deg) scale(1); } 12% { opacity: 1; } 32% { transform: rotateY(70deg) scale(.94); } 50% { transform: rotateY(180deg) scaleX(.12); } 68% { transform: rotateY(290deg) scale(.94); } 100% { opacity: 1; transform: rotateY(360deg) scale(1); } }
 @keyframes princess-gown-swirl { 0%, 100% { transform: scaleX(1) rotate(0); } 32% { transform: scaleX(.78) rotate(-3deg); } 50% { transform: scaleX(.62) rotate(0); } 68% { transform: scaleX(.86) rotate(3deg); } }
 @keyframes princess-wave { 0%, 100% { rotate: -14deg; } 50% { rotate: 20deg; } }
+@keyframes bouquet-held-sway { 0%, 100% { transform: translateX(-50%) rotate(-15deg); } 50% { transform: translateX(-50%) rotate(-9deg); } }
+@keyframes bouquet-land { 0% { opacity: 0; transform: scale(.9); } 65% { opacity: 1; transform: scale(1.08); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes bouquet-hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes bouquet-glow { from { opacity: .28; } to { opacity: .5; } }
+@keyframes bouquet-sparkle { from { opacity: .45; transform: scale(.82); } to { opacity: 1; transform: scale(1.12); } }
+@keyframes bouquet-petal-puff { 0% { opacity: 0; transform: translate3d(0,0,0) rotate(0) scale(.55); } 24% { opacity: 1; } 100% { opacity: 0; transform: translate3d(var(--puff-x),var(--puff-y),0) rotate(var(--puff-turn)) scale(.8); } }
+@keyframes bouquet-sparkle-puff { 0% { opacity: 0; transform: translate3d(0,0,0) scale(.45); } 28% { opacity: 1; } 100% { opacity: 0; transform: translate3d(var(--puff-x),var(--puff-y),0) scale(.72); } }
 @keyframes button-shimmer { 0%, 75%, 100% { opacity: 0; transform: translateX(-150%) skewX(-18deg); } 82% { opacity: .8; } 92% { opacity: 0; transform: translateX(520%) skewX(-18deg); } }
 @keyframes lantern-rise { 0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-2deg); } 15%, 78% { opacity: .8; } 100% { opacity: 0; transform: translate3d(18px, -115vh, 0) rotate(3deg); } }
 @keyframes crown-glow { from { opacity: .72; } to { opacity: 1; } }
