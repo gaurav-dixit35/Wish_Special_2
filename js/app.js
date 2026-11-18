@@ -809,10 +809,12 @@ async function renderApology(shell) {
     await pauseAwareDelay(300);
     btn.remove();
     pardonActions.remove();
+    textBox.hidden = true;
 
     if (cat) {
       cat.classList.add("apology-cat--offering");
       await pauseAwareDelay(400);
+      cat.classList.add("apology-cat--retreating");
     }
 
     let delivered = false;
@@ -974,6 +976,7 @@ async function renderApology(shell) {
   });
   pardonActions.append(btn);
   shell.content.append(pardonActions);
+  shell.scroll.scrollTop = shell.scroll.scrollHeight;
 }
 
 async function renderLetter(shell) {

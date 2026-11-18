@@ -1,6 +1,6 @@
 import { animals, createAnimalSprite } from './animals.js';
 
-const PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
+const PHOTO_FILES = ['P1.jpg', 'P2.jpeg', 'P3.jpeg', 'P4.jpeg', 'P5.webp'];
 
 export async function preloadAssets() {
   const tasks = [];
@@ -19,25 +19,19 @@ export async function preloadAssets() {
   });
   tasks.push(spriteReady);
 
-  const photos = await Promise.all(Array.from({ length: 5 }, async (_, index) => {
-    const number = index + 1;
-    for (const base of [`p${number}`, `P${number}`]) {
-      for (const extension of PHOTO_EXTENSIONS) {
-        const url = `./picfolder/${base}.${extension}`;
-        try {
-          const response = await fetch(url, { method: 'HEAD', cache: 'no-store' });
-          if (!response.ok) continue;
-          const image = new Image();
-          image.src = url;
-          await image.decode();
-          return { url, image, missing: false };
-        } catch {
-          // Try the next supported name and extension.
-        }
-      }
+  const photos = await Promise.all(PHOTO_FILES.map(async (file) => {
+    const url = `./picfolder/${file}`;
+    try {
+      const response = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+      if (!response.ok) throw new Error(`Photo is unavailable: ${file}`);
+      const image = new Image();
+      image.src = url;
+      await image.decode();
+      return { url, image, missing: false };
+    } catch {
+      console.warn(`Photo ${file} is missing or unreadable; a placeholder will be shown.`);
+      return { url: null, image: null, missing: true };
     }
-    console.warn(`Photo p${number} is missing; a placeholder will be shown.`);
-    return { url: null, image: null, missing: true };
   }));
   tasks.push(...photos.filter((photo) => photo.image).map((photo) => photo.image.decode().catch(() => {})));
 

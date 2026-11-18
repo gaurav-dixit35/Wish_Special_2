@@ -62,7 +62,7 @@ Then open [http://localhost:8000](http://localhost:8000).
 
 - **Story text and labels:** edit `js/config.js`.
 - **Page title and sharing metadata:** edit the corresponding tags in `index.html`.
-- **Gallery photographs:** replace the five files in `picfolder/`. The loader accepts `p1` through `p5` (or uppercase `P1` through `P5`) with `.jpg`, `.jpeg`, `.png`, or `.webp` extensions. Missing or unreadable photos receive a placeholder.
+- **Gallery photographs:** replace `picfolder/P1.jpg`, `P2.jpeg`, `P3.jpeg`, `P4.jpeg`, and `P5.webp`. If a file is missing or unreadable, the gallery shows a placeholder. Update the matching filenames in `js/assets.js` when changing the set or extensions.
 - **Soundtrack:** replace `audio/princess.mp3` with another MP3 at the same path. Playback begins after a user interaction to comply with browser autoplay rules.
 
 Google Fonts provide the display and body typefaces when available. System font fallbacks keep the site readable if the font service cannot be reached.
