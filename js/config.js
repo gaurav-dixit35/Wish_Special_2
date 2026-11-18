@@ -50,7 +50,7 @@ export const config = {
     "Cutest 💕 Approved by the whole kingdom ✅",
   ],
   portraits: {
-    end: "More royal portraits coming soon... 📸",
+    end: "Sweet for Miss Sweetest will come soon.. 🍨",
   },
   sorry: {
     lines: [
