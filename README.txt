@@ -11,7 +11,7 @@ the mobile screenshots captured from the running site.
 ----------------------
 Princess Day is a standalone, static, mobile-first story website for Riddhi.
 It uses HTML, CSS, vanilla JavaScript ES modules, inline SVG art, five local
-photos, and browser-generated Web Audio. There is no backend, database,
+photos, a supplied looping soundtrack, and Web Audio interaction effects. There is no backend, database,
 form, analytics, framework, package manager, or build command.
 
 The intended journey has eight scenes and lasts about 90 to 120 seconds when
@@ -29,10 +29,10 @@ Root files:
   js/animals.js    Eight inline SVG animal illustrations and placement helper.
   js/castle.js     Inline SVG kingdom scene and gate-opening helper.
   js/props.js      Inline SVG crowns and other royal objects.
-  js/music.js      Generated lullaby, optional MP3, mute and sound effects.
+  js/music.js      Local soundtrack playback, mute and sound effects.
   js/loops.js      Visibility-aware pause and resume for background motion.
   picfolder/       The five personal photos used by the gallery.
-  audio/           Optional user-supplied music file location.
+  audio/           The supplied princess.mp3 soundtrack.
   assets/          Reserved for static project assets; illustration art is SVG
                    embedded in the JavaScript modules.
   screenshots/     Captured mobile screenshots for this visual record.
@@ -139,23 +139,19 @@ Scene-specific effects:
   The sparkle, gate creak/chime and tada sounds are generated with Web Audio.
 
 The page pauses CSS motion when document.hidden changes. The shooting-star
-timer and music scheduler also pause and resume. Reduced-motion preferences
+timer and soundtrack also pause and resume. Reduced-motion preferences
 shorten animations and transitions.
 
 
 5. AUDIO DESIGN
 ---------------
-js/music.js creates an original music-box lullaby using the Web Audio API:
-70 BPM, a C-major pentatonic melody, alternating sine and triangle plucks,
-quiet sine chord pads, and a generated noise impulse for light reverb. A
-look-ahead scheduler uses the AudioContext clock. The master gain is 0.45.
-The same AudioContext generates the sparkle, gate chime/creak and tada.
-
-Before the splash completes, the site checks once for audio/music.mp3 using a
-HEAD request. If present, an HTMLAudioElement loops it at volume 0.45. If
-missing, generated music is ready. The first tap creates or resumes the audio
-context and starts playback. The top-right music button toggles mute. Music
-continues across scene changes and replay.
+The supplied audio/princess.mp3 track loops at volume 0.45. Before the splash
+completes, the site checks that local file using a HEAD request and prepares
+an HTMLAudioElement. The first tap starts playback to satisfy browser autoplay
+rules. The top-right music button toggles mute, and the track pauses when the
+tab is hidden, resumes when visible, and continues across scene changes and
+replay. The Web Audio API is used only for the sparkle, gate chime/creak and
+tada interaction effects.
 
 
 6. PHOTOS AND ASSET LOADING
