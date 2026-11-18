@@ -207,12 +207,12 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .pardon-after { color: #355c91; }
 .scene-balcony .story-card.has-apology-bouquet .scene-scroll { padding-top: 184px; }
 .apology-bouquet { display: block; pointer-events: none; }
-.apology-bouquet--held { position: absolute; z-index: 4; top: 24px; left: 50%; width: 110px; transform-origin: 50% 75%; animation: bouquet-held-sway 3s ease-in-out infinite; }
+.apology-bouquet--held { position: absolute; z-index: 4; top: 24px; left: 50%; width: 110px; transform-origin: 50% 100%; animation: bouquet-held-sway 3s ease-in-out infinite; }
 .bouquet-art { display: block; width: 100%; height: auto; overflow: visible; }
 .bouquet-twinkle { transform-box: fill-box; transform-origin: center; animation: bouquet-sparkle .9s ease-in-out infinite alternate; }
 .bouquet-twinkle--two { animation-delay: -.45s; }
 .apology-bouquet--flight { position: fixed; z-index: 30; margin: 0; pointer-events: none; animation: none; }
-.apology-gift-stage { position: relative; display: grid; place-items: center; width: min(100%, 180px); height: 190px; margin: 6px auto 0; opacity: 0; transform: scale(.92); }
+.apology-gift-stage { position: relative; display: grid; place-items: center; width: min(100%, 180px); height: 216px; margin: 6px auto 0; opacity: 0; transform: scale(.92); }
 .apology-gift-stage::before { position: absolute; inset: 14%; border-radius: 50%; content: ''; opacity: 0; pointer-events: none; background: radial-gradient(ellipse, rgba(255, 229, 190, .48), rgba(248, 211, 205, .2) 48%, transparent 74%); }
 .apology-gift-stage.is-arrived { opacity: 1; animation: bouquet-land .38s cubic-bezier(.34, 1.56, .64, 1) both; }
 .apology-gift-stage.is-arrived::before { animation: bouquet-glow 3s ease-in-out infinite alternate; }

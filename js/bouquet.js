@@ -1,75 +1,83 @@
-const rose = (
-  x,
-  y,
-  scale = 1,
-) => `<g transform="translate(${x} ${y}) scale(${scale})" stroke="#57485a" stroke-width="2.5" stroke-linejoin="round">
-  <circle r="25" fill="#f4a9b8"/>
-  <path d="M0-22Q12-27 19-16Q27-6 19 3Q16 12 5 13Q-7 17-16 7Q-25-3-16-14Q-10-23 0-22Z" fill="#e8788f"/>
-  <path d="M-1-16Q9-20 14-11Q19-3 11 3Q5 10-4 7Q-14 3-12-6Q-11-14-1-16Z" fill="#f4a9b8"/>
-  <path d="M-2-10Q6-12 8-5Q10 1 3 4Q-3 7-7 2Q-11-4-5-8Q-3-10-2-10Z" fill="#e8788f"/>
-  <path d="M-2-5Q2-8 5-4Q8 0 3 2Q0 4-2 1Q-5-2-2-5Z" fill="#f4a9b8"/>
+const rose = (x, y, scale = 1, angle = 0) => `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})" stroke="#57485a" stroke-width="1.5" stroke-linejoin="round">
+  <circle r="29" fill="#f4a9b8"/>
+  <path d="M-2-27Q10-31 18-22Q31-16 26-3Q31 10 18 17Q11 30-2 25Q-15 31-22 19Q-34 11-26-2Q-31-16-17-22Q-11-30-2-27Z" fill="#e8788f"/>
+  <path d="M-4-21Q7-25 14-16Q24-10 19 0Q24 10 12 15Q7 23-4 19Q-15 24-19 12Q-27 5-18-5Q-22-14-11-19Q-8-22-4-21Z" fill="#f4a9b8"/>
+  <path d="M-3-15Q5-19 11-12Q18-6 12 1Q17 8 7 12Q0 17-7 10Q-17 7-12-2Q-17-9-9-13Q-6-16-3-15Z" fill="#e8788f"/>
+  <path d="M-2-9Q4-12 8-7Q13-2 7 2Q12 7 3 9Q-3 12-7 6Q-12 2-7-3Q-10-8-2-9Z" fill="#f4a9b8"/>
+  <path d="M-1-4Q4-7 6-2Q9 2 4 4Q0 7-3 3Q-7 0-3-3Z" fill="#e8788f"/>
+  <ellipse cx="-13" cy="-14" rx="5" ry="3.2" fill="#ffd2dc" stroke="none" transform="rotate(-32 -13 -14)"/>
 </g>`;
 
-const peony = (
-  x,
-  y,
-  scale = 1,
-) => `<g transform="translate(${x} ${y}) scale(${scale})" stroke="#57485a" stroke-width="2.4" stroke-linejoin="round">
-  <circle r="23" fill="#fff3e6"/>
-  <path d="M0-21Q9-26 14-17Q25-14 20-4Q26 5 15 12Q12 24 1 19Q-8 27-14 16Q-26 13-20 2Q-26-8-15-14Q-10-25 0-21Z" fill="#fff3e6"/>
-  <path d="M-1-14Q7-19 12-10Q20-5 12 1Q14 10 4 12Q-3 18-8 9Q-18 6-13-3Q-16-11-6-13Z" fill="#f4d7c8"/>
-  <path d="M-2-8Q4-12 8-5Q13 1 6 5Q2 11-4 6Q-11 3-7-3Q-7-8-2-8Z" fill="#fff3e6"/>
-  <circle cy="0" r="4" fill="#f5d98b" stroke="none"/>
+const peony = (x, y, scale = 1, angle = 0) => `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})" stroke="#57485a" stroke-width="1.5" stroke-linejoin="round">
+  <path d="M0-24Q9-30 15-20Q27-18 22-7Q30 3 19 12Q16 26 4 21Q-7 29-14 18Q-28 14-22 2Q-29-9-17-16Q-12-28 0-24Z" fill="#fff3e6"/>
+  <path d="M-1-18Q8-23 13-14Q22-11 18-2Q24 6 14 12Q11 21 2 17Q-7 24-12 14Q-21 11-17 2Q-23-6-13-12Q-10-21-1-18Z" fill="#f4d7c8"/>
+  <path d="M-1-11Q6-15 10-8Q17-5 13 2Q18 8 9 12Q5 17-2 12Q-10 17-13 8Q-19 4-12-2Q-16-8-8-10Q-6-13-1-11Z" fill="#fffaf3"/>
+  <path d="M-1-5Q4-8 7-3Q11 1 6 5Q2 9-3 5Q-8 2-5-3Z" fill="#f5dfd4"/>
+  <ellipse cx="-10" cy="-11" rx="4" ry="2.6" fill="#fffaf3" stroke="none" transform="rotate(-35 -10 -11)"/>
 </g>`;
 
-const lavenderCluster = (
-  x,
-  y,
-  scale = 1,
-) => `<g transform="translate(${x} ${y}) scale(${scale})" stroke="#57485a" stroke-width="1.7">
-  <circle cx="-10" cy="-7" r="8" fill="#b9a7ff"/><circle cx="0" cy="-12" r="8" fill="#c6b8ff"/>
-  <circle cx="10" cy="-7" r="8" fill="#b9a7ff"/><circle cx="-7" cy="4" r="8" fill="#c6b8ff"/>
-  <circle cx="7" cy="4" r="8" fill="#b9a7ff"/><circle cy="-3" r="7" fill="#f4d7c8"/>
-  <circle cy="-3" r="2.5" fill="#f5d98b" stroke="none"/>
+const lisianthus = (x, y, scale = 1, angle = 0) => `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})" stroke="#57485a" stroke-width="1.35" stroke-linejoin="round">
+  <circle cx="0" cy="-10" r="10" fill="#b9a7ff"/><circle cx="9.5" cy="-3" r="10" fill="#c6b8ff"/>
+  <circle cx="6" cy="8" r="10" fill="#b9a7ff"/><circle cx="-6" cy="8" r="10" fill="#c6b8ff"/>
+  <circle cx="-9.5" cy="-3" r="10" fill="#b9a7ff"/>
+  <circle r="6" fill="#f4d7c8"/><circle r="2.5" fill="#f5d98b" stroke="none"/>
+  <ellipse cx="-5" cy="-8" rx="2.7" ry="1.8" fill="#e1d8ff" stroke="none" transform="rotate(-35 -5 -8)"/>
 </g>`;
 
-export function drawBouquet(sizePx, variant = "gift") {
+const leaf = (x, y, angle, scale = 1) => `<path d="M0 0Q-12-9-15-25Q1-20 4-4Q12-18 22-19Q20-3 3 3Z" transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})" fill="#8fc9a5" stroke="#5fa684" stroke-width="1.5" stroke-linejoin="round"/>`;
+
+const lavenderSprig = (x, y, scale = 1, angle = 0) => `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M0 30Q2 15 0 0" fill="none" stroke="#5fa684" stroke-width="2"/>
+  <g fill="#b9a7ff" stroke="#8e7dc5" stroke-width="1"><ellipse cx="-4" cy="5" rx="3.5" ry="5"/><ellipse cx="4" cy="9" rx="3.5" ry="5"/><ellipse cx="-4" cy="14" rx="3.5" ry="5"/><ellipse cx="4" cy="18" rx="3.5" ry="5"/><ellipse cx="0" cy="0" rx="3.5" ry="5"/></g>
+</g>`;
+
+export function drawBouquet(sizePx, variant = 'gift') {
   const size = Math.max(48, Math.min(240, Math.round(Number(sizePx) || 110)));
-  const kind = variant === "held" ? "held" : "gift";
-  return `<svg class="bouquet-art bouquet-art--${kind}" width="${size}" height="${Math.round((size * 260) / 220)}" viewBox="0 0 220 260" role="img" aria-label="A hand-tied bouquet of roses and flowers" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#5fa684" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M102 83Q100 130 111 202M53 90Q70 146 105 204M165 89Q150 148 114 204M31 122Q66 162 104 205M189 121Q155 165 116 205M79 124Q87 164 108 205M143 123Q135 165 114 205" fill="none"/>
-      <path d="M72 129Q51 115 45 96Q64 102 77 120ZM84 151Q62 141 54 123Q74 127 89 143ZM142 139Q163 121 169 101Q151 107 138 130ZM132 165Q158 153 167 134Q146 137 128 156ZM102 128Q86 111 88 92Q103 104 108 122ZM111 159Q130 143 132 126Q116 136 108 153Z" fill="#8fc9a5"/>
-      <path d="M74 129Q60 120 51 103M85 151Q70 141 61 128M141 139Q156 126 164 109M132 165Q149 155 160 140M102 128Q94 113 91 101M111 159Q123 146 128 134" fill="none" stroke="#5fa684" stroke-width="2"/>
-    </g>
-    <g fill="none" stroke="#8fc9a5" stroke-width="2.4" stroke-linecap="round">
-      <path d="M29 117Q23 92 36 72M192 116Q198 91 184 70"/>
-      <path d="M30 94l-9-6m10-2 9-7m-10 20-10-4m162-1 9-6m-9-2-8-7m9 20 10-4"/>
-    </g>
-    <g fill="#fff3e6" stroke="#d6bba8" stroke-width="1.3">
-      <circle cx="21" cy="87" r="3.7"/><circle cx="40" cy="78" r="3.7"/><circle cx="20" cy="102" r="3.5"/><circle cx="36" cy="96" r="3.5"/>
-      <circle cx="199" cy="86" r="3.7"/><circle cx="181" cy="77" r="3.7"/><circle cx="201" cy="102" r="3.5"/><circle cx="184" cy="96" r="3.5"/>
-    </g>
-    <g fill="#b9a7ff" stroke="#57485a" stroke-width="1.4">
-      <path d="M72 138l-7-9 8 2-2-10 8 9m62 8 7-9-8 2 2-10-8 9" fill="none" stroke="#8e7dc5" stroke-width="2.4"/>
-      <circle cx="69" cy="127" r="3.2"/><circle cx="79" cy="132" r="3.2"/><circle cx="151" cy="127" r="3.2"/><circle cx="141" cy="132" r="3.2"/>
-    </g>
-    ${rose(54, 72, 0.92)}
-    ${rose(110, 48, 1.02)}
-    ${rose(166, 72, 0.92)}
-    ${peony(29, 110, 0.86)}
-    ${peony(191, 110, 0.86)}
-    ${lavenderCluster(80, 112, 0.84)}
-    ${lavenderCluster(140, 112, 0.84)}
-    <path class="bouquet-twinkle bouquet-twinkle--one" d="M183 42l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#f5d98b"/>
-    <path class="bouquet-twinkle bouquet-twinkle--two" d="M34 76l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z" fill="#f5d98b"/>
+  const kind = variant === 'held' ? 'held' : 'gift';
+  const giftOnly = kind === 'gift';
 
-    <path d="M22 143Q110 169 198 143L160 248Q110 265 60 248Z" fill="#fff3e6" stroke="#8d766d" stroke-width="3.2" stroke-linejoin="round"/>
-    <path d="M39 151Q110 173 181 151L156 224Q110 240 64 224Z" fill="#b9a7ff" stroke="#57485a" stroke-width="2.8" stroke-linejoin="round"/>
-    <path d="M40 154Q110 176 180 154" fill="none" stroke="#fff3e6" stroke-width="3"/>
-    <path d="M58 207Q110 226 162 207L157 222Q110 239 63 222Z" fill="#f5d98b" stroke="#9d7946" stroke-width="2.5" stroke-linejoin="round"/>
-    <path d="M105 211Q91 198 85 209Q84 220 104 220Q92 232 101 237Q110 238 111 220Q122 235 131 230Q137 221 116 216Q137 213 132 203Q126 196 110 211Z" fill="#f5d98b" stroke="#9d7946" stroke-width="2.6" stroke-linejoin="round"/>
-    <path d="M101 217Q84 235 80 251Q95 246 111 222ZM116 218Q138 237 143 252Q127 247 110 222Z" fill="#f5d98b" stroke="#9d7946" stroke-width="2.6" stroke-linejoin="round"/>
-    <path d="M103 212Q109 207 114 212Q118 218 111 221Q104 221 103 212Z" fill="#fff3e6" stroke="#9d7946" stroke-width="1.8"/>
+  return `<svg class="bouquet-art bouquet-art--${kind}" width="${size}" height="${Math.round(size * 260 / 200)}" viewBox="0 0 200 260" role="img" aria-label="A hand-tied bouquet of roses and flowers" xmlns="http://www.w3.org/2000/svg">
+    ${giftOnly ? '<ellipse cx="100" cy="258" rx="18" ry="1.5" fill="#57485a" opacity=".1"/>' : ''}
+
+    <g fill="none" stroke="#8fc9a5" stroke-width="2.2" stroke-linecap="round">
+      <path d="M13 112Q14 83 34 60M187 112Q186 83 166 60M31 122Q31 95 45 77M169 122Q169 95 155 77"/>
+    </g>
+    ${leaf(11, 103, -58, .9)}${leaf(20, 83, -25, .82)}${leaf(31, 70, 18, .75)}
+    ${leaf(189, 103, 58, .9)}${leaf(180, 83, 25, .82)}${leaf(169, 70, -18, .75)}
+    ${leaf(28, 123, -72, .68)}${leaf(172, 123, 72, .68)}
+
+    ${lavenderSprig(61, 32, .8, -18)}${lavenderSprig(139, 32, .8, 18)}
+    <g fill="#fff3e6" stroke="#d9c6b9" stroke-width=".9">
+      <circle cx="39" cy="40" r="2.7"/><circle cx="49" cy="31" r="2.5"/><circle cx="56" cy="43" r="2.4"/>
+      <circle cx="161" cy="40" r="2.7"/><circle cx="151" cy="31" r="2.5"/><circle cx="144" cy="43" r="2.4"/>
+      <circle cx="24" cy="91" r="2.4"/><circle cx="177" cy="91" r="2.4"/>
+    </g>
+
+    <g fill="none" stroke="#5fa684" stroke-width="2.5" stroke-linecap="round">
+      <path d="M91 219Q94 235 87 258M97 220Q99 237 96 258M103 220Q102 239 105 258M109 219Q106 237 114 258"/>
+    </g>
+
+    <path d="M17 122Q30 116 43 123Q58 132 73 125Q88 118 101 124Q116 132 131 126Q148 119 162 124Q176 118 184 124L164 177Q145 216 100 247Q57 221 36 178Z" fill="#fff3e6" stroke="#57485a" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M96 130Q126 138 151 132Q170 129 181 124L162 174Q146 211 100 244Q107 211 107 184Q104 153 96 130Z" fill="#b9a7ff" stroke="#57485a" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M100 142Q102 186 100 230M49 154Q68 193 97 228M151 151Q134 191 105 228" fill="none" stroke="#d7c9ba" stroke-width="1.3" stroke-linecap="round"/>
+    <g fill="#f5d98b" stroke="none" opacity=".2">
+      <circle cx="144" cy="154" r="2.2"/><circle cx="155" cy="166" r="1.8"/><circle cx="136" cy="178" r="1.6"/>
+    </g>
+    <path d="M20 123Q36 117 50 127" fill="none" stroke="#fffaf3" stroke-width="2" stroke-linecap="round"/>
+
+    ${peony(84, 65, .7, -5)}${peony(116, 63, .68, 6)}
+    ${lisianthus(40, 99, 1.02, -7)}${peony(75, 96, 1, -4)}${peony(126, 94, 1, 5)}${lisianthus(160, 99, 1.02, 8)}
+    ${rose(59, 126, .93, -5)}${rose(100, 111, 1.16, 2)}${rose(141, 125, .93, 6)}
+
+    <path class="bouquet-twinkle bouquet-twinkle--one" d="M117 85l2.5 5.5 5.5 2.5-5.5 2.5-2.5 5.5-2.5-5.5-5.5-2.5 5.5-2.5Z" fill="#f5d98b"/>
+    <path class="bouquet-twinkle bouquet-twinkle--two" d="M26 62l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2Z" fill="#f5d98b"/>
+    ${giftOnly ? '<path class="bouquet-twinkle bouquet-twinkle--three" d="M174 145l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2Z" fill="#f5d98b"/>' : ''}
+
+    <path d="M43 151Q100 169 157 151L153 161Q101 179 47 162Z" fill="#f5d98b" stroke="#b38d43" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M97 159Q82 141 73 151Q68 161 94 167Q77 174 79 184Q87 190 100 168Z" fill="#f5d98b" stroke="#b38d43" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M103 159Q118 141 127 151Q132 161 106 167Q123 174 121 184Q113 190 100 168Z" fill="#f5d98b" stroke="#b38d43" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M96 165Q86 183 73 201Q87 197 96 208Q103 186 103 166Z" fill="#f5d98b" stroke="#b38d43" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M104 165Q116 180 132 195Q119 195 108 208Q102 187 100 166Z" fill="#d9b45f" stroke="#b38d43" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M95 158Q100 153 105 158L108 164Q102 170 96 164Z" fill="#fff3e6" stroke="#b38d43" stroke-width="1.4" stroke-linejoin="round"/>
   </svg>`;
 }
