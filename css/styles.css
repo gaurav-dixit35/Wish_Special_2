@@ -172,6 +172,7 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .cushion-stage .coronation-cushion { top: 34px; }
 .cushion-stage .coronation-crown { z-index: 3; top: -8px; transform-origin: top center; }
 .coronation-crown.is-raised { left: clamp(30px, 8.5vw, 39px); top: calc(100% - clamp(90px, 25.5vw, 117px) - 3px); transform: translateX(-50%) scale(.42, .26); }
+.coronation-crown.has-landed::after { position: absolute; top: -5px; right: -9px; color: var(--gold); content: '✦'; font-size: 18px; line-height: 1; pointer-events: none; animation: crown-landing-sparkle .65s ease-out both; }
 .royal-frame { overflow: hidden; }
 .royal-frame img { transition: transform .35s ease-out; cursor: zoom-in; }
 .royal-frame img.is-zoomed { transform: scale(1.12); cursor: zoom-out; }
@@ -315,6 +316,7 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 @keyframes button-shimmer { 0%, 75%, 100% { opacity: 0; transform: translateX(-150%) skewX(-18deg); } 82% { opacity: .8; } 92% { opacity: 0; transform: translateX(520%) skewX(-18deg); } }
 @keyframes lantern-rise { 0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-2deg); } 15%, 78% { opacity: .8; } 100% { opacity: 0; transform: translate3d(18px, -115vh, 0) rotate(3deg); } }
 @keyframes crown-glow { from { opacity: .72; } to { opacity: 1; } }
+@keyframes crown-landing-sparkle { 0% { opacity: 0; transform: scale(.25) rotate(-20deg); } 32% { opacity: 1; transform: scale(1.2) rotate(12deg); } 100% { opacity: 0; transform: translateY(-8px) scale(.65) rotate(28deg); } }
 @keyframes crown-fill { from { opacity: 0; } to { opacity: .7; } }
 @keyframes letter-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes gate-spill { 0% { opacity: 0; transform: translateX(-50%) scale(.35); } 35% { opacity: .86; } 100% { opacity: 0; transform: translateX(-50%) scale(1.7); } }
