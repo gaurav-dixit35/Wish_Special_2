@@ -81,33 +81,36 @@ export function startPrincessWalk(princess) {
   princess?.classList.add('is-walking');
 }
 
-export function crownPrincess(princess, crown) {
-  return new Promise((resolve) => {
-    window.setTimeout(() => {
-      if (!princess?.isConnected) { resolve(false); return; }
-      princess.classList.add('is-crowned');
-      crown?.classList.add('is-raised');
-      if (!crown?.isConnected || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        crown?.classList.add('has-landed');
-        resolve(true);
-        return;
-      }
+export async function crownPrincess(princess, crown) {
+  if (!princess?.isConnected) return false;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  princess.classList.add('is-crowning');
+  if (!reducedMotion) await new Promise((resolve) => window.setTimeout(resolve, 220));
+  if (!princess.isConnected) return false;
 
-      let fallback;
-      let finished = false;
-      const finish = () => {
-        if (finished) return;
-        finished = true;
-        window.clearTimeout(fallback);
-        crown.removeEventListener('transitionend', onTransitionEnd);
-        crown.classList.add('has-landed');
-        resolve(true);
-      };
-      const onTransitionEnd = (event) => {
-        if (event.target === crown && event.propertyName === 'transform') finish();
-      };
-      crown.addEventListener('transitionend', onTransitionEnd);
-      fallback = window.setTimeout(finish, 900);
-    }, 1450);
+  princess.classList.add('is-crowned');
+  crown?.classList.add('is-raised');
+  if (!crown?.isConnected || reducedMotion) {
+    crown?.classList.add('has-landed');
+    return true;
+  }
+
+  await new Promise((resolve) => {
+    let fallback;
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(fallback);
+      crown.removeEventListener('transitionend', onTransitionEnd);
+      crown.classList.add('has-landed');
+      resolve();
+    };
+    const onTransitionEnd = (event) => {
+      if (event.target === crown && event.propertyName === 'transform') finish();
+    };
+    crown.addEventListener('transitionend', onTransitionEnd);
+    fallback = window.setTimeout(finish, 900);
   });
+  return true;
 }
