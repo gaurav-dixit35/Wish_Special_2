@@ -59,9 +59,11 @@ const artwork = `<svg class="princess__figure" viewBox="0 0 120 180" role="img" 
       <circle cx="64" cy="107" r="3.2" fill="#f6cfb7" stroke="#57485a" stroke-width="1.8"/>
     </g>
 
-    <path d="m39 19 5-12 10 8 6-12 7 12 10-8 4 12-5 9H44Z" fill="#f5d98b" stroke="#57485a" stroke-width="2.4"/>
-    <path d="M44 24H76" stroke="#e8a99a" stroke-width="2.5"/>
-    <circle cx="60" cy="10" r="2.6" fill="#e8a99a" stroke="none"/>
+    <g class="princess__head-crown">
+      <path d="m39 19 5-12 10 8 6-12 7 12 10-8 4 12-5 9H44Z" fill="#f5d98b" stroke="#57485a" stroke-width="2.4"/>
+      <path d="M44 24H76" stroke="#e8a99a" stroke-width="2.5"/>
+      <circle cx="60" cy="10" r="2.6" fill="#e8a99a" stroke="none"/>
+    </g>
   </g>
 </svg><span class="princess__sparkle-ring" aria-hidden="true"></span>`;
 
